@@ -70,3 +70,37 @@ a4:c3:f0:85:ac:2d
 ```
 These can be spoofed breaking poor security designs, assumes devices are trustworthy.</br>
 Public places use MAC cotrol with guest or public wi-fi's. to exploit people for money in exchange for faster speeds.
+#### Ping (ICMP(Internet Control Message Protocol)) 
+Packets show the performance of a connection between devices. Ping is the measurement whic uses ICMP's echo packet and echo reply.</br>
+Syntax:
+```
+ping [IP address/website URL]
+```
+
+### Intro to LAN
+#### LAN Topologies
+LAN (Local Area Network)</br>
+Topology is the design of a network.
+##### Star Topology
+Devices are connected individually by a central networking device (switch or hub). This is reliable and scalable but costly.</br>
+It is more expensive because of the cabling and equipment needed. The more it scales the more maintenance it needs. This can make troubleshooting hard. If the central device fails, connected devices can't send or receive data.
+##### Bus Topology
+A single connectection known as a backbone cable. Like a tree where leaves are devices and the trunk is the backbone. Due to only one cable it can be slow and bottlenecked. Difficult to troubleshoot - don't know which device has issues. If the cable broke devices can no longer receive or send data.</br>
+They are easier and cost efficent.
+##### Ring Topology (Token)
+Devices are connected directly to make a loop. Little cable is needed.</br>
+A device only receives data if it doesn't have anything to send. If it does it sends it first before receiving.</br>
+Only travels in one direction so easy to troubleshoot. Inefficent way to send data.</br>
+They are less likely to get bottlenecked. A broken cable or device will stop the network working.
+##### Switch
+Aggregate multiple devices using ethernet. They can have ports of 4, 8, 16, 24, 32 and 64.</br>
+Less efficent that hubs or repaters. It keeps track of where devices are plugged so it can send data to the intended target. - Reduces network traffic.</br>
+Switches and router can be connect - Increases reliability by adding multiple paths. - Can reduce performance but no downtime.
+##### Router
+Connects networks and passes data by routing - Data travelling across networks by creatng a path. Devices can be connected by multiple paths.
+#### Subnetting
+Splitting a big network to smaller networks. Decide what gets which network. For example, different departments in a business. Accounting, Finance and HR. Admins categorise and assign parts of a network. By splitting up the number of hosts creating a subnet mask. Similar to an IP it is a number of four bytes or 32 bits ranging 0-255. Subnets use IPs to:
+- Identify network address - Start of a network and existence. - An IP of 192.168.1.100 identfied by 192.168.1.0
+- Identify host addrress - Identifies device on subnet - address: 192.168.1.1
+- Identify default gateway - Address assigned to a device to sending information to another network - information that needs to go to a different network will be sent here. Can use any host address, normally first or last .1 or .254 (octet #4)
+It is effiecient, secure and fully controlled.
