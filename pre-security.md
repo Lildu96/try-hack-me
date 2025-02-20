@@ -240,4 +240,48 @@ Ports are point where data can be exchanged. Ports enforce what can go where. Wh
 - SMB - 445 - similar to FTP, share devices
 - RDP - 3389 - Log into a system wth a visual desktop interface.
 [more](https://www.vmaxx.net/techinfo/ports.htm)</br>
-Can adminster applications ith different port numbers - need to be specifided with :
+Can administer applications ith different port numbers - need to be specifided with :
+
+### Extending your Network
+#### Introduction to Port Forwarding
+Connects app and services to the internet by opening specific ports at the router. If not connecting they're only available to device on the same network. (Intranet)
+Can confuse Port FOrwarding with the firewall. Firewalls determine what traffic can cross the ports.
+
+#### Firewals 101
+Firewall determines what can enter and exit. Examples of configuration:
+- Where the traffic comes from
+- where it's going
+- Which port?
+- Which protocol?
+Answers are determined by packet inspection.</br>
+They can be hardware (large networks) or Software. There are 2 to 5 categories. The two maine ones:
+- Stateful
+   - Entire information from connection instead of individual packets. Determines behaviour of device.
+   - Consumes resources, decision making is dynamic. Can allow first part of TCP handshake but later fail.
+   - If connection is bad, blocks entire device
+- Stateless
+  - Static rules to allow indiviual packets.
+  - Use fewer resources but dumber. Only effective as the rules defined.
+  - Great for large amounts (Distributed Denial-of-Servicve attck)
+
+#### VPN Basics
+Virtual Private Network (VPN) creates a dedicated path on ther internet (a tunnel) for devices to communication on a private network.</br>
+Benefits:
+- Allows networks in different locations to connect - A business with multiple offices.
+- Privacy - Encrypted, only for destined devices sending and receiving, no sniffing. Useful in public wifi
+- Anonymity - Report global issues where freedom of speech is controlled. Usually viwed by ISP and tracked. A VPN that logs data/history is not worth.
+VPN Technologies:
+- PPP - used by PPTP to allow auth and encryption. Work using a private key and public cert, they must match. It's not routable
+- PPTP - Point-to-Point Tunneling Protocol Technology allows PPP to travel and leave. Easy set-up and most supported. Weak encryption.
+- IPSec - Internet Protocol Security encrypts using IP framework. Difficult to set up. Strong encryption and mostly supported.
+
+#### LAN Networking Devices
+##### What is a Router?
+Routers connect networks and pass data by routing. Creates a path. Operate at Layer 3 (Network). Can have interface (website or console) for admin configs like port forwarding and firewalls. They are not the same as switches. Routing chosen by different factors:
+- Which protocol
+- Shortest path
+- Reliable path
+- Faster medium (copper/fibre)
+##### What is a Switch
+Connects multiple devices (3- 63) with ethernet cables. Operate at Layer 2 (Data Link) and Layer 3 (Netowrk). Layer 2 switch doesn't work on Layer 3 switch. Layer 2 forwards frames using MAC address. Layer 3 can be same as router. Can send frames and route packets.</br>
+VLAN (Virtual Local Area Network) allows specific devices to be virtually split up. Can beneift an internet connection but treated separately. This provides security using rules to say ow devices communicate.
