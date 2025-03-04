@@ -285,3 +285,38 @@ Routers connect networks and pass data by routing. Creates a path. Operate at La
 ##### What is a Switch
 Connects multiple devices (3- 63) with ethernet cables. Operate at Layer 2 (Data Link) and Layer 3 (Netowrk). Layer 2 switch doesn't work on Layer 3 switch. Layer 2 forwards frames using MAC address. Layer 3 can be same as router. Can send frames and route packets.</br>
 VLAN (Virtual Local Area Network) allows specific devices to be virtually split up. Can beneift an internet connection but treated separately. This provides security using rules to say ow devices communicate.
+
+## How The Web Works
+### DNS in Detail
+DNS (Domain Name System) is a way to communicate on the internet without complex numbers. Instead of remember IP Addresses we remember website names.
+#### Domain Hierarchy
+##### TLD (Top-Level Domain)
+Righthand part of a domain name. .com/.co.uk etc.</br>
+Two types:
+- gTLD (Generic Top Level Domain) - Domain name purpose - .org = organisation
+- ccTLD (Country Code Top Level Domain) - Geopgraphical - .co.uk = UK
+Due to demand there is new gTLDs (over 2000)
+
+##### Second-Level Domain
+The name of the website is the Second Level (github). Limited to 63 char's. Can't use special characters apart from hyphens. Can't start or end with or have executive hyphens.
+
+##### Subdomain
+On left hand side of the Second-evel. Same creation restrictions as the Second-Level. Multiple subdomains can be used - length must be 253 char's or less. No limit of subdomains
+
+#### Record Types
+Not just for Websites:
+- A Record - resolve to IPv4
+- AAAA Record - resolve IPv6
+- CNAME Record - resolve to another domain name. an online store can return a CNAME record to shopify for example. Another request would be used to work out the IP.
+- MX Record - resolve to server address which handles the email for the domain. Come with a priority flag - which order to try the servers. If main server goes down an email can be sent to a backup.
+- TXT Record - Free text fields to store text based data. Uses include:
+  - list authoritive servers to send emails, helps against spam and spoof.
+  - Verify ownership when signing up to third parties.
+
+#### Making a Request
+What Happens?
+1. Pc checks cache if recently searched. Otherwise a request to Recursive DS Server is made.
+2. A recursive DNS Server is provided by your ISP but can be chosen. Has a local cache. Request ends if it is found locally. If not it starts at the root DNS servers.
+3. The root servers are the DNS backbone. They redirect you to the Top Level Domain. If it is .com it is recognised and sent to the correct TLD server.
+4. TLD server holds record for the authoritive server or nameserver. Multiple nameservers as backups.
+5. An Authoritive DNS server store the DNS records. Domain names and updates to domain names. DNS record is sent back to the Recursicve DNS Server - copy is cached for future. They have a TTL value - a number in seconds for length of save time. Caching saves on making requests.
