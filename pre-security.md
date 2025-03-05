@@ -320,3 +320,8 @@ What Happens?
 3. The root servers are the DNS backbone. They redirect you to the Top Level Domain. If it is .com it is recognised and sent to the correct TLD server.
 4. TLD server holds record for the authoritive server or nameserver. Multiple nameservers as backups.
 5. An Authoritive DNS server store the DNS records. Domain names and updates to domain names. DNS record is sent back to the Recursicve DNS Server - copy is cached for future. They have a TTL value - a number in seconds for length of save time. Caching saves on making requests.
+
+### HTTP in Detail
+#### What is it?
+HyperText Transfer Protocol (HTTP) is used to view a site. Developed by Tim Berners-Lee between 1989-1991. Rules for communcating with web server to transmit webpage data.</br>
+HTTPS (Secure) is secure. Stops people seeing sent and received data. Not talking to an impersonated web server.
