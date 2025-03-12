@@ -174,17 +174,24 @@ Similar to OSI Model with 4 layers:
 - Application
 - Transport
 - Internet
-- Network Interface
+- Network Interface <br/>
+
 Information is added to each layer as a packet travels. - Encapsulation, reverse is decapsulation.</br>
-TCP is conenction-based - a connectiong between client and device(server) needs to be established. - Guarantees data is sent. - Three-way handshake.</br>
+TCP is conenction-based - a connection between client and device (server) needs to be established. - Guarantees data is sent. - Three-way handshake.
+</br>
+
 Advantages:
 - Guarantees integrity of data
-- Sync 2 devces to prevent flooding of dqata.
+- Sync 2 devces to prevent flooding of data.
 - Performs more process reliably
-Disadvantages:
+<br/>
+
+Disadvantages:  
 - Requires a reliable connecting. Data unsuable if something is missed.
 - Slow connectiong can bottleneck - connection is reserved on other devices.
 - Slower - more computing needs doing.
+<br/>
+
 TCP packets contains sections - headers. Crucial headers:
 - Source Port - Port opened by the sender, value is chosen randomly (0-65535)
 - Destination Port - Port that an app or service is running on remote (receiving). This is not randomly chosen
@@ -195,6 +202,8 @@ TCP packets contains sections - headers. Crucial headers:
 - Checksum - TCP integrity. A calcuation to remember the output. If the calculation is different between receiving and sending it is corrupt
 - Data - Bytes are stored
 - Flag - How the packet is handled. Flags have different behaviours.
+</br>
+
 The Three-Way Handshake communicates with messages:
 - Step 1 - SYN - Initial packet - creates connection and sync devices.
 - Step 2 - SYN/ACK - Packet sent by receiving device - acknowledge sync
@@ -202,10 +211,13 @@ The Three-Way Handshake communicates with messages:
 - Step 4 - DATA - Data is sent
 - Step 5 - FIN - Cleanly closes the connection
 - Step # - RST - Ends all communication, a last resort and a problem during.
+</br>
+
 Sent data is given a random number which incriments by 1. Both devices agree on the same sequence. Three steps:
 1. SYN - Client: Here's my Initial Sequence Number(ISN) to SYNchronise with (0)
 2. SYN/ACK - Server: Here's my Initial Sequence Number (ISN) to SYNchronise with (5,000), and I ACKnowledge your initial number sequence (0)
-3. ACK - Client: I ACKnowledge your Initial Sequence Number (ISN) of (5,000), here is some data that is my ISN+1 (0 + 1)
+3. ACK - Client: I ACKnowledge your Initial Sequence Number (ISN) of (5,000), here is some data that is my ISN+1 (0 + 1)</br>
+
 A connection is closed when the devices confirm all the dtaa has been received. Best practice to close asap. FIN packet is sent - then acknowledged.
 
 #### UDP/IP
@@ -325,3 +337,54 @@ What Happens?
 #### What is it?
 HyperText Transfer Protocol (HTTP) is used to view a site. Developed by Tim Berners-Lee between 1989-1991. Rules for communcating with web server to transmit webpage data.</br>
 HTTPS (Secure) is secure. Stops people seeing sent and received data. Not talking to an impersonated web server.
+
+#### Requests and Responses
+Browser makes requests to server for parts of the site. It is told where to go by URLs (Uniform Resource Locator).
+##### What is a URL?
+An instruction to access a resource. Features of a URL, from left to right:
+- Scheme - Which protocol to use to access HTTP, HTTPS, FTP etc.
+- User - Authentication. Username and password can be put into url
+- Host/Domain - Domain name or IP of server to access
+- Port - Port for connection. Normally 80 for HTTP and 443 for HTTPS. Can be between 1 - 65535
+- Path - File name of location
+- Query String - Information to access specific parts of the website
+- Fragment - Reference to a location on the requsted page. Used for long content and links to direct part of the page.
+##### Making a Request
+Can make a request with GET / HTTP/1.1 </br>
+For better wbe experience headers are sent with more data and information to the server. Example:
+```
+GET / HTTP/1.1
+Host: tryhackme.com
+User-Agent: Mozilla/5.0 Firefox/87.0
+Referer: https://tryhackme.com
+
+```
+Line 1: Sending GET method to reuqest homepage with / and using HTTP v1.1  
+Line 2: Which website we want 
+Line 3: Which browser and version  
+Line 4: Referred page  
+Line 5: End with a blank line to finish the request.  
+Example Response:
+```
+HTTP/1.1 200 OK
+Server: nginx/1.15.8
+Date: Fri, 09 Apr 2021 13:34:03 GMT
+Content-Type: text/html
+Content-Length: 98
+
+<html>
+<head>
+  <title>TryHackMe</title>
+</head>
+<body>
+  Welcome to TryHackMe.com
+</body>
+</html>
+```
+Line 1: HTTP server and status code - successful  
+Line 2: Server software and version  
+Line 3: Date/time/timezone  
+Line 4: Which type of information is sent  
+Line 5: Length of Response - confirm no missing data  
+Line 6: Blank Line confirms end of response
+Line 7-14: Information requested
