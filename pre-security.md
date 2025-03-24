@@ -222,14 +222,19 @@ A connection is closed when the devices confirm all the dtaa has been received. 
 
 #### UDP/IP
 User Datagram Protocol</br>
-A statless protocol- doesn't require a constant connection. Can tolerate data being lost. No safeguards Advantages:
+A stateless protocol- doesn't require a constant connection. Can tolerate data being lost. No safeguards.</br>
+Advantages:
 - Faster
 - Application decides speed of packets.
 - no continuous connection
+</br>
+
 Disadvantages:
 - Missing data
 - Flexible to devs
 - bad experience
+</br>
+
 Standard headers across protocols:
 - Time to Live (TTL) - Expiry for packet, doesn't clog network.
 - Source Address - IP of sent packet, can return here
@@ -237,6 +242,8 @@ Standard headers across protocols:
 - Source Port - port opened by sender, randomly chosen (0-65535)
 - Destination Port - Port that an app or service is running on remote (receiving). This is not randomly chosen
 - Data - bytes are stored
+</br>
+
 Communication:
 - Request  <--
 - Response -->
@@ -388,3 +395,88 @@ Line 4: Which type of information is sent
 Line 5: Length of Response - confirm no missing data  
 Line 6: Blank Line confirms end of response
 Line 7-14: Information requested
+
+#### HHTP Methods
+Show intended action when making a request. Most common:
+- GET - gets information from web server
+- POST - submits data to the web server, can create new records
+- PUT - Updates information by submitting data
+- DELETE - Deletes information/records
+
+#### HTTP Status Codes
+Status codes indicate the outcome of a request and how to handle it. 5 Ranges:
+- 100-199 - Information Response - the first part of the request is accepted and can conintue. Not common.
+- 200-299 - Success
+- 300-399 - Redirection
+- 400-499 - Client errors
+- 500-599 - Server errors - major problem of server.
+
+Common Status Codes:
+- 200 - OK
+- 201 - Created
+- 301 - Moved Permanently
+- 302 - Found - Temporary change and can change again
+- 400 - Bad Request - something wrong or missing in the request.
+- 401- Not Authorised - probs need to log in
+- 403 - Forbidden - no permission at all
+- 405 - Method not Allowed - Expecting a different method for the intention
+- 404 - Page Not Found - page doesn't exist
+- 500 - Internal Service error - a error from the serror that it doesn't know how to handle the request
+- 503 - Service unavailable - request can't be handled because its over loaded or down.
+
+#### Headers
+Headers are additional data with the request.  
+Common Request Headers:  
+Sent from client to server  
+- Host - which website is required, otherwise will receive default from server
+- User-Agent - browser software and version - to format
+- Content-Length - tells erver how much content to expect. ensures nothing missing
+- Accept-Encoding - compression methods the browser uses, made smaller to transmit.
+- Cookie - Remember information
+
+Common Response Headers:  
+Returned to client after a request  
+- Set Cookie - Information to store, sent back on each request
+- Cache-Control - Length of time to store content
+- Content-Type - type of data being returned and ow to process it (HTMl, CSS, Javascript, Images, PDF, Video)
+- Content-Encoding - what method used to compress
+
+#### Cookies
+Data stored on pc. Saved with "Set-Cookie" header. Further requests send data back to the sever. Reminds the server who I am. Most commonly used for authentication. A token (an unguessable code).  
+Cookies can be viewed in developer tools under Network for requested cookies. If the browser sent a cooke it will be under the cookies tab.
+
+### How Websites Work
+#### How Websites work
+Two major components:
+- Front end (Client-Side)
+- Back end ( Server-side)
+
+#### HTML
+Websites are created with:
+- HTML - build and define structure
+-  CSS - look pretty
+-  JavaScript - add features using interactivity
+
+HyperText Markup Language (HTML) using tags to build the page and tell the browser how to display it. Example:
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <h1>Example Heading</h1>
+    <p>Example paragraph..</p>
+  </body>
+</html>
+```
+Description:
+- `<!DOCTYPE html>` Defines HTML% document. Satandardisation across browers using HTML5.
+- `<html>` root element, everything else comes after this.
+- `<head>` Containt information - Title
+- `<body>` What is shown in the browser
+- `<h1>` Large heading
+- `<p>` paragraph
+- Elements for everthing, (buttons, images, etc.)
+
+Tags can have 1 or more attributes for styling or specifying locations. `<p class="bold-text">`, `<img src="img.jpg">`. Id attributes are used for styling or identify in Javascript. Can be viwed on any site by right clicking > "View Page Source"
