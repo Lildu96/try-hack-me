@@ -480,3 +480,51 @@ Description:
 - Elements for everthing, (buttons, images, etc.)
 
 Tags can have 1 or more attributes for styling or specifying locations. `<p class="bold-text">`, `<img src="img.jpg">`. Id attributes are used for styling or identify in Javascript. Can be viwed on any site by right clicking > "View Page Source"
+
+#### Javascript
+JS popular coding language, creates interaction and functionality. Updates the page in real-time.  
+Can be loaded with `<script>` tag or added remotely with src. The HTML is found with id's. `document.getElementById("example").innerHTML = "Example";`.  
+Events can be executed with JS such as 'onclick' or 'onhover'.
+
+#### Sensitive Data Exposure
+occurs when a site doesn't protect clear-text information in frontend source code.  
+login credentials, hidden links or an sensitive data could be left in and shown.  
+This can be found in the page's source code and used, such as login details, to login or access backend.  
+When assessing, use source code to find details or links.
+
+#### HTML Injection
+unfiltered user input is displayed. can inject malicious HTML. (client-side).  
+HTML or JS can be submitted and control the appearance and functionality.  
+
+### Putting it all Together
+#### Other Components
+##### Load Balancers
+If there is large traffic, might need more than one web server. Load balancers ensure high traffic can be handled and having a failover if server is unresponsive.  
+Receives the request first and forwards it. Uses algorithsm to decide which server. round-robin sends it to each server and weighted sends to least busy server.  
+Perform health checks on server. If something is wrong it stops ending traffic until fixed.
+
+##### CDN (Content Delivery Networks)
+cuts traffic. Host static files across servers everywhere. When something is requested it is sent from the nearest server.
+
+##### Databases
+Stores and recalls user information. Can be a plain text file up to multiple server such as MySQL, MSSQL, MongoDB, Postgres. Each with specific features
+
+##### WAF (Web Application Firewall)
+sits between request and server. protects from hacks or dos. Analyses for common attack techniques such as from a real site or excessive requests like rate limiting. Only allowing a certain amount of requestss from a single IP. If deemed malicious it is dropped and never sent.
+
+#### How Web Severs Work
+##### What is it?
+software listening for incoming connections. Uses HTTP to deliver. Most common is Apache, Nginx, IIS and NodeJS. delivers files from root directory. Default locations /var/www/html in Linux, C:\inetpub\wwwroot for Windows.
+
+##### Virtual Hosts
+(text-based config files) Servers host multiple sites with different domain names using virutal hosts. Checks hostname from HTTP header against virtual hosts. If matched site is provided. If not default site.  
+Root directories can be mapped differently.  
+Theres no limit on amount of sites hosted.
+
+##### Static Vs Dynamic Content
+Static never changes, pictures, js, css, html. Files directly served from srver.  
+Dynamic can change for example a blog showing latest entries. Created entries update the page. or  Search bar, depending on text entered results change.  
+Done in backend with programming and scripting languages.
+
+##### Scripting and Backend Languages
+not much of limit of what can be achieved. Makes the site interactive. Examples of languages, PHP, Python, ruby, NodeJS, Perl. They can interact with databases, call externa services, process user data.
