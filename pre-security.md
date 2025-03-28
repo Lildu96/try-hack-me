@@ -528,3 +528,22 @@ Done in backend with programming and scripting languages.
 
 ##### Scripting and Backend Languages
 not much of limit of what can be achieved. Makes the site interactive. Examples of languages, PHP, Python, ruby, NodeJS, Perl. They can interact with databases, call externa services, process user data.
+
+
+## Linux Fundamentals
+### Part 1
+#### Background
+Linux powers a lot for example:
+- Websites
+- Car entertainment
+- PoS systems in shops
+- Infrasturcture such as traffic lights or industrial sensors
+##### Flavours
+Linux is an umbrella term for OS's based on UNIX. It is open-source so it can be developed to work on whatever the system is for.  
+Ubuntu and Debian are common distributions. Ubuntu can be run as a server or as a desktop. I am using kali which is Debian.  
+Linux was first released September 1991.
+
+#### Running Commands
+Linux often doesn't have a gui so interaction is through the terminal.  
+Basic functions include navigating files, output contents of files and creating them.
+I have created a command [cheat sheet](Linux-Commands-Cheat-Sheet.md).
