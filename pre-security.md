@@ -547,3 +547,15 @@ Linux was first released September 1991.
 Linux often doesn't have a gui so interaction is through the terminal.  
 Basic functions include navigating files, output contents of files and creating them.
 I have created a command [cheat sheet](Linux-Commands-Cheat-Sheet.md).
+
+### Part 2
+#### Accessing with SSH
+Secure shell (SSH). An encrypted protocol to interact with a remote linux machine using the command line.  
+Cryptography - Human readable format is encrypted to travel across networks. Unencrypted once reaching remote machine.  
+To login provide the syntax of the remote IP address and credentials to login. Example:
+```
+ssh tryhackme@10.10.10.10
+```
+
+#### Flags and Switches
+Many commands allow arguments, provided with a using a hyphen and a kayword or letter. If no argument is provided it performs default behaviour. Commands that have these also have a --help or `man` option.
