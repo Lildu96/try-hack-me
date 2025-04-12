@@ -587,3 +587,101 @@ example:
 ```
 Backs up the users documents every 12 hours. It can use the wild car *  
 You can edit crontabs using the `-e` argument.
+
+## Windows Fundamentals
+### Part 1
+Windows dates back to 1985. The current version for servers is Windows Server 2019.  
+The file system uses New Technology File System (NTFS). Before NTFS there was FAT16/FAT32 (File Allocation Table) and HPFS (High Performance File System). NTFS is a journaling file system. If there is a failure folders and files are repaired using a log file. Functions:
+- Supports files larger than 4GB
+- Set specific permissions on folders and files
+- Folder and file compression
+- Encrption (EFS(Encrypton File System)
+- Permissions
+  - Full control
+  - Modify
+  - Read &Execute
+  - List folder contents
+  - Read
+  - Write
+- Alternate Data Streams (ADS) - file attribute
+
+Every file has a data stream `$DATA`. ADS allows files to contain more than one. Malware writes use ADS to hide data.  
+
+the C:\ drive is typically where the OS is and where the system environment variables are stored `%windir%`. 'System32' hole critical files for the OS.
+
+The run dialog box allows quick access to items and can be found by right clicking the start menu and clicking run.  
+The shortcut to find users and groups is `lusrmgr.msc`.  
+
+Local users are protected with User Account Control (UAC). When an operation requires high-level privileges, user is prompted to confirm they permit the operation. This can be password protected against the admin.
+
+### Part 2
+System Configuration (MSConfig) - advanced troubleshooting - mainly startup issues. Admin rights are needed.  
+General  
+What devices and service to load at boot. Normal, Diagnostic or Selective.  
+Boot  
+Define boot options  
+Services  
+Lists all services configured for the system. Runs in the background.  
+Startup  
+Go to task manager to manage startup apps.  
+Tools  
+Utitlies to be run to configure the operating system.  
+
+Computer Management `compmgmt`  
+It has three tools:
+- System Tools
+- Storage
+- Services and Applications
+
+System Tools:
+- Task Scheduler - create and manage tasks to do automatically.  
+- Event Viewer - allows us to view events that have happened - an audit trail to understand activity. Used to diagnose problems.  
+- Shared Folders - shows a list of shares and folders shared to other users.  
+- Sessions shows - users connected to shares.
+- Open Files - folders and files that the user accesses
+- Local Users and Groups - manage users and groups
+- Performance (perfmon) - real time or from a log performance data. Troubleshooting performance
+- Device Manager - view and configure hardware.
+
+Storage:
+- Windows Server Backup
+- Disk Management - perform advanced storage tasks:
+  - Set up a new drive
+  - Extend partition
+  - shrink partition
+  - Assign/Change a drive letter
+
+Services and Applications
+enable/disable/view properties of a service
+WMI Control configures and controls the Windows Management Instrumentation service.  
+
+System Information (msinfo32)  
+Gathers information about the computer and displays a view of hardware, system components and software envirments. Can be used to diagnose issues. System ummary shows general specs for the computer.Three sections:
+- Hardware Resources
+- Components - shows hardware devices
+- Software Environment - software baked into the OS and installed. Can also view Env Var and Network Connections.
+
+Resource Monitor (resmon)  
+Geared to advanced users needing to troubleshoot. Four sections:
+- CPU
+- Disk
+- Network
+- Memory
+
+Command Prompt (cmd)  
+Used to be the sole way to operate an OS. Basic commands:
+- Hostname - outputs computer name
+- whoami - output the name of logged in user
+- ipconfig - shows network address settings
+- /? - help for any other command `ipconfig /?`
+- cls- clear screen
+- netstat - shows protocal statistics and TCP/IP connections
+- net - manage network resources, supports sub commands. net help displays the manual
+
+Windows Registry (regedit)
+hierarchical database store information to configure the system for users/application/hardware. Containing:
+- User Profiles
+- Applications and the documents that each create
+- Property sheet settings
+- Hardware
+- Ports
