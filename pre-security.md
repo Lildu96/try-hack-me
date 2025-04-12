@@ -559,3 +559,31 @@ ssh tryhackme@10.10.10.10
 
 #### Flags and Switches
 Many commands allow arguments, provided with a using a hyphen and a kayword or letter. If no argument is provided it performs default behaviour. Commands that have these also have a --help or `man` option.
+
+### Part 3
+#### Processes 101
+Processes are managed in the kernel where it has an ID - PID. 
+The OS use namespaces to split resources. Only people in the same namepace can see each other.  
+PID 0 is started when the system boots (systemd). Manages user's process and is between the OS and the user. Programs or software are children of systemd.  
+Some apps can be started on boots by admins. Using `systemctl`. e.g. `systemctrl [option] [service]` There are 4 options:
+- Start
+- Stop
+- Enable
+- Disable
+
+Processes can run in background and foreground. `ctrl + z` can be used to background a process.
+
+#### Automation
+The `cron` process using `crontabs` can automate commands. Crontab requires 6 values:
+- MIN    - what minute to execute at
+- HOUR   - what hour to execute at
+- DOM    - What Day Of Month to execute at
+- MON    - What month of the year to execute at
+- DOW    - What Day Of Week to execute at
+- CMD    - The command to give
+example:
+```
+0 */12 * * * cp -R /home/cmnatic/Documents /var/backups/
+```
+Backs up the users documents every 12 hours. It can use the wild car *  
+You can edit crontabs using the `-e` argument.
