@@ -16,6 +16,8 @@ Use `--help` or `man` (manual) for lists of arguments
 |su|switch user|Switches the user using the username and password|`su [user]`|
 |wget|??|Downloads files from the web using HTTP|`wget [website url]`|
 |scp|secure copy|Transfers files and rename from the host (Between two pcs)|From host to remote`scp [file name] [user@IP:folder path]` From remote to host `scp [user@IP:file path] [file name]`|
+|`ctrl+z`||Sends a command to the background, or suspends|`ctrl+z` in the terminal|
+|fg|foreground|Brings background processes to the foreground|`fg`|
 
 ### Interacting with Files and Folders
 |Command|Full Name|Description|Example|
@@ -48,3 +50,10 @@ Use `--help` or `man` (manual) for lists of arguments
 `up` and `down` Keys to Navigate  
 `Enter` to start a new line  
 Press `ctrl`(^ on linux) and the corresponding letter to use features.  
+
+## Processes
+|Command|Full Name|Description|Example|
+|---|---|---|---|
+|ps|Process?|Gives a list of the processes|`ps`|
+|top|?? |Shows real time statistics that refresh every 10 seconds|`top`|
+|kill|Kill|Terminates a process|`kill [PID]`
